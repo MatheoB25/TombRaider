@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Lever
+  - Door
+  - Damage
   layers:
   - Default
   - TransparentFX

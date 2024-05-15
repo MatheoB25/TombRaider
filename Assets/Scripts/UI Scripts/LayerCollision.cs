@@ -6,6 +6,10 @@ using UnityEngine;
 public class LayerCollision : MonoBehaviour
 {
     private GameObject _isColliding;
+    private GameObject _leverColliding;
+    [SerializeField] private int _lifemax = 100;
+    [SerializeField] private int _lifecurrent = 100;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +27,43 @@ public class LayerCollision : MonoBehaviour
         {
             _isColliding = collider.gameObject;
         }
-        //Debug.Log("Collision enter: " + collision.gameObject.name);
+
+        if (collider.gameObject.tag == "Lever")
+        {
+            _leverColliding = collider.gameObject;
+        }
+        Debug.Log("Collision enter: " + collider.gameObject.name);
+
+        if (collider.gameObject.tag == "Damage")
+        {
+
+
+            ChangeLife(collider.gameObject.GetComponent<Damage>().GetDamageCost());
+
+            
+        }
+
+    }
+    public void ChangeLife(int point)
+    {
+        _lifecurrent = _lifecurrent + point;
+
+        if (_lifecurrent < 0)
+        {
+            _lifecurrent = 0;
+        }
+        if (_lifecurrent > _lifemax)
+        {
+            _lifecurrent = _lifemax;
+        }
+    }
+    public int GetLifeMax()
+    {
+        return _lifemax;
+    }
+    public int GetCurrentLife()
+    {
+        return _lifecurrent;
     }
 
     private void OnTriggerStay(Collider collider)
@@ -32,7 +72,7 @@ public class LayerCollision : MonoBehaviour
         {
             _isColliding = collider.gameObject;
         }
-        //Debug.Log("Collision enter: " + collision.gameObject.name);
+        Debug.Log("Collision enter: " + collider.gameObject.name);
     }
 
 
@@ -42,11 +82,11 @@ public class LayerCollision : MonoBehaviour
         {
             _isColliding = null;
         }
-        
 
-
-
-
+        if (collider.gameObject.tag == "Lever")
+        {
+            _leverColliding = null; 
+        }
         /* private void OnCollisionStay(Collision collision)
           {
               Debug.Log("Collision stay: " + collision.gameObject.name);
@@ -56,5 +96,9 @@ public class LayerCollision : MonoBehaviour
     public bool GetColliding()
     {
         return _isColliding != null;
+    }
+    public bool GetLeverColliding()
+    {
+        return _leverColliding != null;
     }
 }

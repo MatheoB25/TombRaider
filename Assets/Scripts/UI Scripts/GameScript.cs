@@ -21,30 +21,118 @@ public class GameScript : MonoBehaviour
     private Vector3 _velocity;
     [SerializeField] private float _gravity = 9.81f;
     [SerializeField] private LayerCollision _scriptCollision;
-    [SerializeField] private bool _jumpPressed = false;
+     private bool _jumpPressed = false;
     [SerializeField] private float _jumpImpulse = 2f;
-    [SerializeField] private bool _leverTouch = false;
-    [SerializeField] private bool _doorOpen = false;
+    private bool _bigOpen = false;
+    [SerializeField] private GameObject _tourniquet;
+
+
+
+    private bool _leverTouch = false;
+    private bool _leverTouch2 = false;
+    private bool _leverTouch3 = false;
+    private bool _leverTouch4 = false;
+    private bool _leverTouch5 = false;
+    private bool _leverTouch6 = false;
+    private bool _leverTouch7 = false;
+    private bool _leverTouch8 = false;
+    private bool _leverTouch9 = false;
+    private bool _leverTouch10 = false;
+    private bool _leverTouch11 = false;
+    private bool _leverTouch12 = false;
+    private bool _leverTouch13 = false;
+    private bool _leverTouch14 = false;
+
+    private bool _doorOpen = false;
+    private bool _doorOpen2 = false;
+    private bool _doorOpen3 = false;
+    private bool _doorOpen4 = false;
+    private bool _doorOpen5 = false;
+    private bool _doorOpen6 = false;
+    private bool _doorOpen7 = false;
+    private bool _doorOpen8 = false;
+    private bool _doorOpen9 = false;
+    private bool _doorOpen10 = false;
+    private bool _doorOpen11 = false;
+    private bool _doorOpen12 = false;
+    private bool _doorOpen13 = false;
+    private bool _doorOpen14 = false;
+
     [SerializeField] private GameObject Door;
-    [SerializeField] private Vector3 _doorPosition;
+    [SerializeField] private GameObject Door2;
+    [SerializeField] private GameObject Door3;
+    [SerializeField] private GameObject Door4;
+    [SerializeField] private GameObject Door5;
+    [SerializeField] private GameObject Door6;
+    [SerializeField] private GameObject Door7;
+    [SerializeField] private GameObject Door8;
+    [SerializeField] private GameObject Door9;
+    [SerializeField] private GameObject Door10;
+    [SerializeField] private GameObject Door11;
+    [SerializeField] private GameObject Door12;
+    [SerializeField] private GameObject Door13;
+
+    private Vector3 _doorPosition;
+    private Vector3 _doorPosition2;
+    private Vector3 _doorPosition3;
+    private Vector3 _doorPosition4;
+    private Vector3 _doorPosition5;
+    private Vector3 _doorPosition6;
+    private Vector3 _doorPosition7;
+    private Vector3 _doorPosition8;
+    private Vector3 _doorPosition9;
+    private Vector3 _doorPosition10;
+    private Vector3 _doorPosition11;
+    private Vector3 _doorPosition12;
+    private Vector3 _doorPosition13;
+
+
     [SerializeField] private GameObject _leverBlock;
-    [SerializeField] private bool _leverActivated = false;
+    [SerializeField] private GameObject _leverBlock2;
+    [SerializeField] private GameObject _leverBlock3;
+    [SerializeField] private GameObject _leverBlock4;
+    [SerializeField] private GameObject _leverBlock5;
+    [SerializeField] private GameObject _leverBlock6;
+    [SerializeField] private GameObject _leverBlock7;
+    [SerializeField] private GameObject _leverBlock8;
+    [SerializeField] private GameObject _leverBlock9;
+    [SerializeField] private GameObject _leverBlock10;
+    [SerializeField] private GameObject _leverBlock11;
+    [SerializeField] private GameObject _leverBlock12;
+    [SerializeField] private GameObject _leverBlock13;
+    [SerializeField] private GameObject _leverBlock14;
+
+    private bool _leverActivated = false;
+    private bool _leverActivated2 = false;
+    private bool _leverActivated3 = false;
+    private bool _leverActivated4 = false;
+    private bool _leverActivated5 = false;
+    private bool _leverActivated6 = false;
+    private bool _leverActivated7 = false;
+    private bool _leverActivated8 = false;
+    private bool _leverActivated9 = false;
+    private bool _leverActivated10 = false;
+    private bool _leverActivated11 = false;
+    private bool _leverActivated12 = false;
+    private bool _leverActivated13 = false;
+    private bool _leverActivated14 = false;
+
     [SerializeField] GameObject _pistol;
-    
-    [SerializeField] private bool _shootPressed = false;
+     private bool _shootPressed = false;
     
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-       
+        _tourniquet.transform.Rotate(new Vector3(0, 1f, 0));
+
         //Gravity
         if (_scriptCollision.GetColliding() == true && _velocity.y < 0)
         {
@@ -94,8 +182,133 @@ public class GameScript : MonoBehaviour
                 _doorOpen = false;
             }
         }
-        
-        
+
+        if (_doorOpen2 == true)
+        {
+            Door2.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door2.transform.position.y > _doorPosition2.y + 2.5f)
+            {
+                _doorOpen2 = false;
+            }
+        }
+
+        if (_doorOpen3 == true)
+        {
+            Door3.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door3.transform.position.y > _doorPosition3.y + 2.5f)
+            {
+                _doorOpen3 = false;
+            }
+        }
+        if (_doorOpen4 == true)
+        {
+            Door4.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door4.transform.position.y > _doorPosition4.y + 2.5f)
+            {
+                _doorOpen4 = false;
+            }
+        }
+
+        if (_doorOpen5 == true)
+        {
+            Door5.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door5.transform.position.y > _doorPosition5.y + 2.5f)
+            {
+                _doorOpen5 = false;
+            }
+        }
+
+        if (_doorOpen6 == true)
+        {
+            Door6.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door6.transform.position.y > _doorPosition6.y + 2.5f)
+            {
+                _doorOpen6 = false;
+            }
+        }
+
+        if (_doorOpen7 == true)
+        {
+            Door7.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door7.transform.position.y > _doorPosition7.y + 2.5f)
+            {
+                _doorOpen7 = false;
+            }
+        }
+
+        if (_doorOpen8 == true)
+        {
+            Door8.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door8.transform.position.y > _doorPosition8.y + 2.5f)
+            {
+                _doorOpen8 = false;
+            }
+        }
+
+        if (_doorOpen9 == true)
+        {
+            Door9.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door9.transform.position.y > _doorPosition9.y + 2.5f)
+            {
+                _doorOpen9 = false;
+            }
+        }
+
+        if (_doorOpen10 == true)
+        {
+            Door10.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door10.transform.position.y > _doorPosition10.y + 2.5f)
+            {
+                _doorOpen10 = false;
+            }
+        }
+
+        if (_doorOpen11 == true)
+        {
+            Door11.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door11.transform.position.y > _doorPosition11.y + 2.5f)
+            {
+                _doorOpen11 = false;
+            }
+        }
+
+        if (_doorOpen12 == true)
+        {
+            Door12.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door12.transform.position.y > _doorPosition12.y + 2.5f)
+            {
+                _doorOpen12 = false;
+            }
+        }
+
+       
+      
+
+        if (_leverActivated13 == true && _leverActivated14 == true)
+        {
+            _bigOpen = true;
+        }
+
+        if (_bigOpen == true)
+        {
+            Door13.transform.Translate(new Vector3(0f, 0f, 0.1f));
+
+            if (Door13.transform.position.y > _doorPosition13.y + 2.5f)
+            {
+                _doorOpen13 = false;
+            }
+        }
     }
     
     
@@ -147,7 +360,179 @@ public class GameScript : MonoBehaviour
             _leverTouch = false;
 
         }
- 
+
+
+
+
+
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding2() == true && _leverActivated2 == false)
+        {
+            _doorPosition2 = Door2.transform.position;
+            _doorOpen2 = true;
+            _leverTouch2 = true;
+            _leverActivated2 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch2 = false;
+
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding3() == true && _leverActivated3 == false)
+        {
+            _doorPosition3 = Door3.transform.position;
+            _doorOpen3 = true;
+            _leverTouch3 = true;
+            _leverActivated3 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch3 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding4() == true && _leverActivated4 == false)
+        {
+            _doorPosition4 = Door4.transform.position;
+            _doorOpen4 = true;
+            _leverTouch4 = true;
+            _leverActivated4 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch4 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding5() == true && _leverActivated5 == false)
+        {
+            _doorPosition5 = Door5.transform.position;
+            _doorOpen5 = true;
+            _leverTouch5 = true;
+            _leverActivated5 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch5 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding6() == true && _leverActivated6 == false)
+        {
+            _doorPosition6 = Door6.transform.position;
+            _doorOpen6 = true;
+            _leverTouch6 = true;
+            _leverActivated6 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch6 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding7() == true && _leverActivated7 == false)
+        {
+            _doorPosition7 = Door7.transform.position;
+            _doorOpen7 = true;
+            _leverTouch7 = true;
+            _leverActivated7 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch7 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding8() == true && _leverActivated8 == false)
+        {
+            _doorPosition8 = Door8.transform.position;
+            _doorOpen8 = true;
+            _leverTouch8 = true;
+            _leverActivated8 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch8 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding9() == true && _leverActivated9 == false)
+        {
+            _doorPosition9 = Door9.transform.position;
+            _doorOpen9 = true;
+            _leverTouch9 = true;
+            _leverActivated9 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch9 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding10() == true && _leverActivated10 == false)
+        {
+            _doorPosition10 = Door10.transform.position;
+            _doorOpen10 = true;
+            _leverTouch10 = true;
+            _leverActivated10 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch10 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding11() == true && _leverActivated11 == false)
+        {
+            _doorPosition11 = Door11.transform.position;
+            _doorOpen11 = true;
+            _leverTouch11 = true;
+            _leverActivated11 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch11 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding12() == true && _leverActivated12 == false)
+        {
+            _doorPosition12 = Door12.transform.position;
+            _doorOpen12 = true;
+            _leverTouch12 = true;
+            _leverActivated12 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch12 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding13() == true && _leverActivated13 == false)
+        {
+            
+            _leverTouch13 = true;
+            _leverActivated13 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch13 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding14() == true && _leverActivated14 == false)
+        {
+            
+            _leverTouch14 = true;
+            _leverActivated14 = true;
+        }
+
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverTouch14 = false;
+        }
     }
     public void Shoot(InputAction.CallbackContext Context)
     {

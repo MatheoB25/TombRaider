@@ -82,7 +82,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c09645bf1099e6a4fafb79e52aacb990, type: 2}
+      objectReference: {fileID: 2100000, guid: 943970c1495f03543929dcd74ff8be6c, type: 2}
     - target: {fileID: -7511558181221131132, guid: 3074422d8692154469f9c9a415241aa5,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884f499814cac8349ae20342f0ee448f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageCost: -10
+  _damageCost: -1
 --- !u!65 &733521265392610689
 BoxCollider:
   m_ObjectHideFlags: 0

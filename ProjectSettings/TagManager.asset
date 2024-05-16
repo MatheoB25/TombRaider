@@ -8,6 +8,19 @@ TagManager:
   - Lever
   - Door
   - Damage
+  - Lever2
+  - Lever3
+  - Lever4
+  - Lever5
+  - Lever6
+  - Lever7
+  - Lever8
+  - Lever9
+  - Lever10
+  - Lever11
+  - Lever12
+  - Lever13
+  - Lever14
   layers:
   - Default
   - TransparentFX

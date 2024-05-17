@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageCost: -10
+  _damageCostBot: -10
 --- !u!65 &2078785897615575947
 BoxCollider:
   m_ObjectHideFlags: 0

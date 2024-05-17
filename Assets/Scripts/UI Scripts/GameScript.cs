@@ -25,6 +25,9 @@ public class GameScript : MonoBehaviour
     [SerializeField] private float _jumpImpulse = 2f;
     private bool _bigOpen = false;
     [SerializeField] private GameObject _tourniquet;
+    
+
+
 
 
 
@@ -117,6 +120,19 @@ public class GameScript : MonoBehaviour
     private bool _leverActivated13 = false;
     private bool _leverActivated14 = false;
 
+    private bool _leverElevatorTouch = false;
+    private bool _elevatorOpen = false;
+    [SerializeField] private GameObject _elevator;
+    private Vector3 _elevatorPosition;
+    [SerializeField] private GameObject _leverElevatorBlock;
+    private bool _leverElevatorActivated = false;
+
+    [SerializeField] private float _endElevator = 1f;
+    private bool _upElevator = false;
+    private bool _downElevator = true;
+    [SerializeField] private float _timerElevator = 0f;
+    [SerializeField] private float _speedElevator = 0f;
+
     [SerializeField] GameObject _pistol;
      private bool _shootPressed = false;
     
@@ -131,6 +147,7 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         _tourniquet.transform.Rotate(new Vector3(0, 1f, 0));
 
         //Gravity
@@ -172,6 +189,23 @@ public class GameScript : MonoBehaviour
 
 
         }
+
+        if (_elevatorOpen == true)
+        {
+                _elevator.transform.position += transform.up * -2f * Time.deltaTime;
+            }          
+
+            if (_elevator.transform.position.y < _elevatorPosition.y + -8f)
+            {
+           
+
+
+                _elevator.transform.position += transform.up * 6f * Time.deltaTime;
+               
+            }
+          
+            
+  
 
         if (_doorOpen == true)
         {
@@ -532,6 +566,18 @@ public class GameScript : MonoBehaviour
         else if (Context.phase == InputActionPhase.Canceled)
         {
             _leverTouch14 = false;
+        }
+
+        if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverElevatorColliding() == true && _leverElevatorActivated == false)
+        {
+            _elevatorPosition = _elevator.transform.position;
+            _elevatorOpen = true;
+            _leverElevatorTouch = true;
+            _leverElevatorActivated = true;
+        }
+        else if (Context.phase == InputActionPhase.Canceled)
+        {
+            _leverElevatorTouch = false;
         }
     }
     public void Shoot(InputAction.CallbackContext Context)

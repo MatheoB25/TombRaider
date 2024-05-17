@@ -20,9 +20,20 @@ public class LayerCollision : MonoBehaviour
     private bool _leverColliding12 = false;
     private bool _leverColliding13 = false;
     private bool _leverColliding14 = false;
+
+
+
+    private bool _leverElevatorColliding = false;
+
+
+    
+    [SerializeField] private int _lifemaxBot = 100;
+    [SerializeField] private int _lifecurrentBot = 100;
+
     [SerializeField] private int _lifemax = 100;
     [SerializeField] private int _lifecurrent = 100;
-   
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +51,10 @@ public class LayerCollision : MonoBehaviour
         {
             _isColliding = collider.gameObject;
         }
-
+        if (collider.gameObject.tag == "LeverElevator")
+        {
+            _leverElevatorColliding = collider.gameObject;
+        }
         if (collider.gameObject.tag == "Lever")
         {
             _leverColliding = collider.gameObject;
@@ -123,6 +137,17 @@ public class LayerCollision : MonoBehaviour
             
         }
 
+        if (collider.gameObject.tag == "Damage")
+        {
+
+
+            ChangeLifeBot(collider.gameObject.GetComponent<Damage>().GetDamageCost());
+
+
+        }
+
+
+
     }
     public void ChangeLife(int point)
     {
@@ -136,7 +161,26 @@ public class LayerCollision : MonoBehaviour
         {
             _lifecurrent = _lifemax;
         }
+
     }
+    public void ChangeLifeBot(int point)
+    {
+        _lifecurrentBot = _lifecurrentBot + point;
+        
+
+        if (_lifecurrentBot < 0)
+            {
+                _lifecurrentBot = 0;
+            }
+            if (_lifecurrentBot > _lifemaxBot)
+            {
+                _lifecurrentBot = _lifemaxBot;
+            }
+
+
+
+
+        }
     public int GetLifeMax()
     {
         return _lifemax;
@@ -145,6 +189,17 @@ public class LayerCollision : MonoBehaviour
     {
         return _lifecurrent;
     }
+
+    public int GetLifeMaxBot()
+    {
+        return _lifemaxBot;
+    }
+    public int GetCurrentLifeBot()
+    {
+        return _lifecurrentBot;
+    }
+
+
 
     private void OnTriggerStay(Collider collider)
     {
@@ -162,7 +217,11 @@ public class LayerCollision : MonoBehaviour
 
 
         }
+
+       
     }
+
+
 
 
     private void OnTriggerExit(Collider collider)
@@ -170,6 +229,11 @@ public class LayerCollision : MonoBehaviour
         if (collider.gameObject.tag == "Ground" && _isColliding.transform.GetInstanceID() == collider.gameObject.transform.GetInstanceID())
         {
             _isColliding = null;
+        }
+
+        if (collider.gameObject.tag == "LeverElevator")
+        {
+            _leverElevatorColliding = true;
         }
 
         if (collider.gameObject.tag == "Lever")
@@ -252,6 +316,12 @@ public class LayerCollision : MonoBehaviour
     {
         return _isColliding != null;
     }
+
+    public bool GetLeverElevatorColliding()
+    {
+        return _leverElevatorColliding;
+    }
+
     public bool GetLeverColliding()
     {
         return _leverColliding;

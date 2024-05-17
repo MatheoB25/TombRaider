@@ -5,6 +5,7 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     [SerializeField] private int _damageCost = 0;
+    [SerializeField] private int _damageCostBot = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,4 +21,10 @@ public class Damage : MonoBehaviour
     { 
         return _damageCost;
     }
+
+    public int GetDamageCostBot()
+    {
+        return _damageCostBot;
+    }
+
 }

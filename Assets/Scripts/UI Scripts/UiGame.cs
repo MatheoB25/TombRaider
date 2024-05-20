@@ -18,16 +18,14 @@ public class UiGame : MonoBehaviour
         _lifeBar.maxValue = _layerCollisionScript.GetLifeMax();
         _lifeBar.value = _layerCollisionScript.GetCurrentLife();
 
-        _lifeBarBot.minValue = 0;
-        _lifeBarBot.maxValue = _layerCollisionScript.GetLifeMaxBot();
-        _lifeBarBot.value = _layerCollisionScript.GetCurrentLifeBot();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         _lifeBar.value = _layerCollisionScript.GetCurrentLife();
-        _lifeBarBot.value = _layerCollisionScript.GetCurrentLifeBot();
+       
     }
     public void SelectDifficulty()
     {

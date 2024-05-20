@@ -17,14 +17,22 @@ public class GameScript : MonoBehaviour
     [SerializeField] private float MoveSpeed = 1f;
     [SerializeField] private float _rotateSpeed = 100f;
     [SerializeField] private CharacterController CharacterController;
+    
     [SerializeField] private Animator _animator;
     private Vector3 _velocity;
     [SerializeField] private float _gravity = 9.81f;
     [SerializeField] private LayerCollision _scriptCollision;
-     private bool _jumpPressed = false;
+    [SerializeField] private EnemyCollision _enemyCollision;
+    private bool _jumpPressed = false;
     [SerializeField] private float _jumpImpulse = 2f;
     private bool _bigOpen = false;
     [SerializeField] private GameObject _tourniquet;
+
+
+
+    [SerializeField] private Transform _enemyTransform;
+    private Vector3 _velocityEnemy;
+    [SerializeField] private float _gravityEnemy = 9.81f;
     
 
 
@@ -147,7 +155,17 @@ public class GameScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        {
+            if (_scriptCollision.GetColliding() == true && _velocityEnemy.y < 0)
+            {
+                _velocityEnemy.y = -0f;
+            }
+            else if (_scriptCollision.GetColliding() == false)
+            {
+                _velocityEnemy.y = _velocityEnemy.y - _gravityEnemy * Time.deltaTime;
+            }
+        }
+
         _tourniquet.transform.Rotate(new Vector3(0, 1f, 0));
 
         //Gravity
@@ -394,11 +412,6 @@ public class GameScript : MonoBehaviour
             _leverTouch = false;
 
         }
-
-
-
-
-
 
         if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverColliding2() == true && _leverActivated2 == false)
         {

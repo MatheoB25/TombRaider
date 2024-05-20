@@ -27,8 +27,7 @@ public class LayerCollision : MonoBehaviour
 
 
     
-    [SerializeField] private int _lifemaxBot = 100;
-    [SerializeField] private int _lifecurrentBot = 100;
+    
 
     [SerializeField] private int _lifemax = 100;
     [SerializeField] private int _lifecurrent = 100;
@@ -137,14 +136,7 @@ public class LayerCollision : MonoBehaviour
             
         }
 
-        if (collider.gameObject.tag == "Damage")
-        {
-
-
-            ChangeLifeBot(collider.gameObject.GetComponent<Damage>().GetDamageCost());
-
-
-        }
+       
 
 
 
@@ -162,26 +154,7 @@ public class LayerCollision : MonoBehaviour
             _lifecurrent = _lifemax;
         }
 
-    }
-    public void ChangeLifeBot(int point)
-    {
-        _lifecurrentBot = _lifecurrentBot + point;
-        
-
-        if (_lifecurrentBot < 0)
-            {
-                _lifecurrentBot = 0;
-            }
-            if (_lifecurrentBot > _lifemaxBot)
-            {
-                _lifecurrentBot = _lifemaxBot;
-            }
-
-
-
-
-        }
-    public int GetLifeMax()
+    } public int GetLifeMax()
     {
         return _lifemax;
     }
@@ -190,14 +163,7 @@ public class LayerCollision : MonoBehaviour
         return _lifecurrent;
     }
 
-    public int GetLifeMaxBot()
-    {
-        return _lifemaxBot;
-    }
-    public int GetCurrentLifeBot()
-    {
-        return _lifecurrentBot;
-    }
+    
 
 
 
@@ -218,7 +184,9 @@ public class LayerCollision : MonoBehaviour
 
         }
 
-       
+        
+
+
     }
 
 
@@ -246,7 +214,6 @@ public class LayerCollision : MonoBehaviour
         {
             _leverColliding2 = true;
         }
-
 
         if (collider.gameObject.tag == "Lever3")
         {

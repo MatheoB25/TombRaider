@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
 {
     [SerializeField] private float _speedShoot = 1f;
     [SerializeField] private float _Timer = 0f;
-    [SerializeField] private float _endBullet = 1f;
+    [SerializeField] private float _endBullet = 2.5f;
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(gameObject.transform.forward * _speedShoot * Time.deltaTime);
+        transform.Translate(new Vector3(0f, 1f, 0f) * 20f * Time.deltaTime);
         _Timer = _Timer + Time.deltaTime;
 
         if (_Timer > _endBullet)

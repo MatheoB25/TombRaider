@@ -10,6 +10,9 @@ public class UiGame : MonoBehaviour
     [SerializeField] private Slider _lifeBar;
     [SerializeField] private Slider _lifeBarBot;
     [SerializeField] private LayerCollision _layerCollisionScript;
+    [SerializeField] private GameScript _GameScript;
+    [SerializeField] private GameObject _GreenKey;
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,7 @@ public class UiGame : MonoBehaviour
         _lifeBar.minValue = 0;
         _lifeBar.maxValue = _layerCollisionScript.GetLifeMax();
         _lifeBar.value = _layerCollisionScript.GetCurrentLife();
+       
 
         
     }
@@ -43,4 +47,6 @@ public class UiGame : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void LaunchNextSceneGame() { }
 }

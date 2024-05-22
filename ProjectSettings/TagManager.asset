@@ -24,6 +24,18 @@ TagManager:
   - LeverElevator
   - Elevator
   - Bullet
+  - LeverElevator2
+  - RotateLever
+  - LeverPlatform
+  - GK
+  - GD
+  - 'Player '
+  - BK
+  - BD
+  - PK
+  - PD
+  - YD
+  - YK
   layers:
   - Default
   - TransparentFX

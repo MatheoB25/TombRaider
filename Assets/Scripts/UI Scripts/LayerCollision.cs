@@ -21,13 +21,23 @@ public class LayerCollision : MonoBehaviour
     private bool _leverColliding13 = false;
     private bool _leverColliding14 = false;
 
-
+    private bool _gkColliding = false;
+    private bool _gdColliding = false;
 
     private bool _leverElevatorColliding = false;
+    private bool _leverElevatorColliding2 = false;
+
+    private bool _leverPlatformColliding1 = false;
+
+    private bool _leverRotateColliding = false;
 
 
-    
-    
+
+
+
+
+
+
 
     [SerializeField] private int _lifemax = 100;
     [SerializeField] private int _lifecurrent = 100;
@@ -46,6 +56,20 @@ public class LayerCollision : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
+
+       
+
+
+        if (collider.gameObject.tag == "LeverPlatform")
+        {
+            _leverPlatformColliding1 = collider.gameObject;
+        }
+
+        if (collider.gameObject.tag == "RotateLever")
+        {
+            _leverRotateColliding = collider.gameObject;
+        }
+
         if (collider.gameObject.tag == "Ground")
         {
             _isColliding = collider.gameObject;
@@ -54,6 +78,12 @@ public class LayerCollision : MonoBehaviour
         {
             _leverElevatorColliding = collider.gameObject;
         }
+
+        if (collider.gameObject.tag == "LeverElevator2")
+        {
+            _leverElevatorColliding2 = collider.gameObject;
+        }
+
         if (collider.gameObject.tag == "Lever")
         {
             _leverColliding = collider.gameObject;
@@ -194,6 +224,10 @@ public class LayerCollision : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
+
+       
+
+
         if (collider.gameObject.tag == "Ground" && _isColliding.transform.GetInstanceID() == collider.gameObject.transform.GetInstanceID())
         {
             _isColliding = null;
@@ -202,6 +236,21 @@ public class LayerCollision : MonoBehaviour
         if (collider.gameObject.tag == "LeverElevator")
         {
             _leverElevatorColliding = true;
+        }
+
+        if (collider.gameObject.tag == "LeverPlatform")
+        {
+            _leverPlatformColliding1 = true;
+        }
+
+        if (collider.gameObject.tag == "RotateLever")
+        {
+            _leverRotateColliding = true;
+        }
+
+        if (collider.gameObject.tag == "LeverElevator2")
+        {
+            _leverElevatorColliding2 = true;
         }
 
         if (collider.gameObject.tag == "Lever")
@@ -285,6 +334,22 @@ public class LayerCollision : MonoBehaviour
     }
 
     public bool GetLeverElevatorColliding()
+    {
+        return _leverElevatorColliding;
+    }
+
+
+    public bool GetLeverPlatformColliding1()
+    {
+        return _leverPlatformColliding1;
+    }
+
+    public bool GetLeverRotateColliding()
+    {
+        return _leverRotateColliding;
+    }
+
+    public bool GetLeverElevatorColliding2()
     {
         return _leverElevatorColliding;
     }

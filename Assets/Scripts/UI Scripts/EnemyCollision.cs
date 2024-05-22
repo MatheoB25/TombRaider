@@ -68,7 +68,7 @@ public class EnemyCollision : MonoBehaviour
 
             ChangeLifeBot(collider.gameObject.GetComponent<Damage>().GetDamageCostBot());
             
-
+            
         }
     }
 }

@@ -245,7 +245,7 @@ public class LayerCollision : MonoBehaviour
 
         if (collider.gameObject.tag == "RotateLever")
         {
-            _leverRotateColliding = true;
+            _leverRotateColliding = false;
         }
 
         if (collider.gameObject.tag == "LeverElevator2")

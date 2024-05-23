@@ -10,8 +10,7 @@ public class UiGame : MonoBehaviour
     [SerializeField] private Slider _lifeBar;
     [SerializeField] private Slider _lifeBarBot;
     [SerializeField] private LayerCollision _layerCollisionScript;
-    [SerializeField] private GameScript _GameScript;
-    [SerializeField] private GameObject _GreenKey;
+    
         
     // Start is called before the first frame update
     void Start()

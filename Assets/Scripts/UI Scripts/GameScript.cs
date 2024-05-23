@@ -28,8 +28,12 @@ public class GameScript : MonoBehaviour
     private bool _jumpPressed = false;
     [SerializeField] private float _jumpImpulse = 2f;
     private bool _bigOpen = false;
-    [SerializeField] private GameObject _tourniquet;
 
+    [SerializeField] private GameObject _tourniquet;
+    [SerializeField] private GameObject _tourniquet2;
+    [SerializeField] private GameObject _tourniquet3;
+    [SerializeField] private GameObject _tourniquet4;
+    [SerializeField] private GameObject _tourniquet5;
 
 
     [SerializeField] private Transform _enemyTransform;
@@ -177,6 +181,9 @@ public class GameScript : MonoBehaviour
     private bool _elevatorOpen20 = false;
     private bool _elevatorOpen21 = false;
 
+
+    
+
     [SerializeField] private GameObject _elevator;
     [SerializeField] private GameObject _elevator2;
     [SerializeField] private GameObject _elevator3;
@@ -198,6 +205,9 @@ public class GameScript : MonoBehaviour
     [SerializeField] private GameObject _elevator19;
     [SerializeField] private GameObject _elevator20;
     [SerializeField] private GameObject _elevator21;
+   
+
+
 
     private Vector3 _elevatorPosition;
     private Vector3 _elevatorPosition2;
@@ -220,6 +230,7 @@ public class GameScript : MonoBehaviour
     private Vector3 _elevatorPosition19;
     private Vector3 _elevatorPosition20;
     private Vector3 _elevatorPosition21;
+  
 
 
 
@@ -245,6 +256,8 @@ public class GameScript : MonoBehaviour
     [SerializeField] private GameObject _leverElevatorBlock19;
     [SerializeField] private GameObject _leverElevatorBlock20;
     [SerializeField] private GameObject _leverElevatorBlock21;
+
+
 
     [SerializeField] private GameObject _leverPlatformBlock1;
 
@@ -323,6 +336,14 @@ public class GameScript : MonoBehaviour
         }
 
         _tourniquet.transform.Rotate(new Vector3(0, 1f, 0));
+
+        _tourniquet2.transform.Rotate(new Vector3(0, 1f, 0));
+
+        _tourniquet3.transform.Rotate(new Vector3(0, 1f, 0));
+
+        _tourniquet4.transform.Rotate(new Vector3(0f, 0f, 1f));
+
+        _tourniquet5.transform.Rotate(new Vector3(2f, 2f, 2f));
 
         //Gravity
         if (_scriptCollision.GetColliding() == true && _velocity.y < 0)
@@ -814,7 +835,8 @@ public class GameScript : MonoBehaviour
 
 
 
-            if (_doorOpen == true)
+
+        if (_doorOpen == true)
             {
                 Door.transform.Translate(new Vector3(0f, 0f, 0.1f));
 
@@ -964,12 +986,18 @@ public class GameScript : MonoBehaviour
             }
         }
 
-        if (_leverRotationActivated == true && _plaque1.transform.rotation.eulerAngles.y <= _plaqueRotY + 85)
+        if (_leverRotationActivated == true && (_plaque1.transform.rotation.eulerAngles.y < _plaqueRotY + 90|| _plaque1.transform.rotation.eulerAngles.y < _plaqueRotY + 90 - 360))
         {
             _plaque1.transform.Rotate (0, 5, 0);
 
-            if (_plaque1.transform.rotation.eulerAngles.y > _plaqueRotY + 85 || (_plaque1.transform.rotation.eulerAngles.y < 85 && _plaque1.transform.rotation.eulerAngles.y > _plaqueRotY + 85 - 360));
+            if (_plaque1.transform.rotation.eulerAngles.y >= _plaqueRotY + 90 || _plaque1.transform.rotation.eulerAngles.y <=1 )
             {
+                float Angle = _plaqueRotY + 90;
+                if (Angle == 360)
+                {
+                    Angle = 0;
+                }
+                _plaque1.transform.rotation = Quaternion.Euler(0, Angle, 0);
                 _leverRotationActivated = false;
             }
         }
@@ -1486,6 +1514,8 @@ public class GameScript : MonoBehaviour
         {
             _leverElevatorTouch21 = false;
         }
+
+
 
         if (Context.phase == InputActionPhase.Started && _scriptCollision.GetLeverRotateColliding() == true && _leverRotationActivated == false)
         {

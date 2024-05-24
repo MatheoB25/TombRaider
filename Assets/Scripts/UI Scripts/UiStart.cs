@@ -27,11 +27,11 @@ public class UiStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ButtonSize.localScale.x <= 1.5f)
+        if (ButtonSize.localScale.x <= 1f)
         {
             ChangeScale = true;
         }
-        else if (ButtonSize.localScale.x >= 2f)
+        else if (ButtonSize.localScale.x >= 1.5f)
         {
             ChangeScale = false;
         }

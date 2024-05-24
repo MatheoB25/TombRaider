@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LayerCollision : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class LayerCollision : MonoBehaviour
 
     private bool _leverRotateColliding = false;
 
+    private bool _End1Colliding = false;
 
 
 
@@ -52,7 +54,11 @@ public class LayerCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (_lifecurrent == 0)
+        {
+            SceneManager.LoadScene("PlayMenu");
+        }
+            
     }
     private void OnTriggerEnter(Collider collider)
     {
@@ -63,6 +69,36 @@ public class LayerCollision : MonoBehaviour
         if (collider.gameObject.tag == "LeverPlatform")
         {
             _leverPlatformColliding1 = collider.gameObject;
+        }
+
+        if (collider.gameObject.tag == "END1")
+        {
+            SceneManager.LoadScene("LEVEL TWO");
+        }
+
+        if (collider.gameObject.tag == "END2")
+        {
+            SceneManager.LoadScene("LEVEL THREE");
+        }
+
+        if (collider.gameObject.tag == "END3")
+        {
+            SceneManager.LoadScene("LEVEL FOUR");
+        }
+
+        if (collider.gameObject.tag == "END4")
+        {
+            SceneManager.LoadScene("LEVEL FIVE");
+        }
+
+        if (collider.gameObject.tag == "END5")
+        {
+            SceneManager.LoadScene("LEVEL SIX");
+        }
+
+        if (collider.gameObject.tag == "END6")
+        {
+            SceneManager.LoadScene("Start");
         }
 
         if (collider.gameObject.tag == "RotateLever")

@@ -35,6 +35,8 @@ public class GameScript : MonoBehaviour
     [SerializeField] private GameObject _tourniquet4;
     [SerializeField] private GameObject _tourniquet5;
 
+    [SerializeField] private GameObject _murpic;
+
 
     [SerializeField] private Transform _enemyTransform;
     private Vector3 _velocityEnemy;
@@ -335,7 +337,7 @@ public class GameScript : MonoBehaviour
             }
         }
 
-        _tourniquet.transform.Rotate(new Vector3(0, 1f, 0));
+        _tourniquet.transform.Rotate(new Vector3(0, 0.5f, 0));
 
         _tourniquet2.transform.Rotate(new Vector3(0, 1f, 0));
 
@@ -345,6 +347,7 @@ public class GameScript : MonoBehaviour
 
         _tourniquet5.transform.Rotate(new Vector3(2f, 2f, 2f));
 
+        _murpic.transform.Translate(new Vector3(-0.05f, 0f, 0f));
         //Gravity
         if (_scriptCollision.GetColliding() == true && _velocity.y < 0)
         {

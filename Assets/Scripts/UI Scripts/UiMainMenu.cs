@@ -20,22 +20,21 @@ public class UiMainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlaySpeedRotation >= 1.5f)
+        if (PlaySpeedRotation >= 0.5f)
         {
             RotationSpeed = true;
         }
-        else if (PlaySpeedRotation <= 3f)
+        else if (PlaySpeedRotation <= 1f)
         {
             RotationSpeed = false;
         }
         if (RotationSpeed == true)
         {
-            PlayButtonRotate.localRotation = Quaternion.Euler(PlayButtonRotate.localRotation.x + PlaySpeedRotation, PlayButtonRotate.localRotation.y + PlaySpeedRotation, PlayButtonRotate.localRotation.z + PlaySpeedRotation);
-            PlaySpeedRotation = PlaySpeedRotation + 0.5f;
+            PlayButtonRotate.localRotation = Quaternion.Euler(0.2f,0.2f, 0f);
         }   
         else if (RotationSpeed == false) 
         {
-            PlayButtonRotate.localRotation = Quaternion.Euler(PlayButtonRotate.rotation.x - PlaySpeedRotation, PlayButtonRotate.rotation.y - PlaySpeedRotation, PlayButtonRotate.localRotation.z - PlaySpeedRotation);
+            PlayButtonRotate.localRotation = Quaternion.Euler(0.2f, 0.2f, 0f);
             PlaySpeedRotation = PlaySpeedRotation - 0.5f;
         }
     }

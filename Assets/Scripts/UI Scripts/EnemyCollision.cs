@@ -13,6 +13,7 @@ public class EnemyCollision : MonoBehaviour
     [SerializeField] private Slider _lifeBar;
     [SerializeField] private Slider _lifeBarBot;
     [SerializeField] GameObject _enemy;
+    [SerializeField] GameObject _bulleto;
     [SerializeField] GameScript _gameScript;
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,7 @@ public class EnemyCollision : MonoBehaviour
 
 
             ChangeLifeBot(collider.gameObject.GetComponent<Damage>().GetDamageCostBot());
-            
+            Destroy(_bulleto);
             
         }
     }

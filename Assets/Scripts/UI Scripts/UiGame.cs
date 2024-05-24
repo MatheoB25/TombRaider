@@ -29,15 +29,9 @@ public class UiGame : MonoBehaviour
     {
         _lifeBar.value = _layerCollisionScript.GetCurrentLife();
        
-    }
-    public void SelectDifficulty()
-    {
         
     }
-    public void SelectName()
-    {
-        
-    }
+   
     public void LaunchPreviousSceneGame()
     {
         SceneManager.LoadScene("MainMenu");

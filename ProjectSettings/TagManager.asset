@@ -36,6 +36,12 @@ TagManager:
   - PD
   - YD
   - YK
+  - END1
+  - END2
+  - END3
+  - END4
+  - END5
+  - END6
   layers:
   - Default
   - TransparentFX
